@@ -1,7 +1,10 @@
 var express = require('express'),
     app = express();
+var proxy = require('express-http-proxy');
 
 app.use(express.static('www'));
+
+app.use('/api-proxy', proxy('https://cryptic-hamlet-61352.herokuapp.com'));
 
 // CORS (Cross-Origin Resource Sharing) headers to support Cross-site HTTP requests
 app.all('*', function(req, res, next) {
