@@ -1,10 +1,10 @@
-angular.module('novemstat').factory('eventsService', function($http,apiUrl) {
+angular.module('novemstat').factory('eventsService', function($http) {
 	var service = {};
 
 	service.getEvents = function(){
 		return $http({
 			method: 'GET',
-			url: apiUrl + '/evenements'
+			url: '/api-proxy' + '/evenements'
 		}).then(function(res) {
 			return res.data;
 		});
@@ -13,7 +13,7 @@ angular.module('novemstat').factory('eventsService', function($http,apiUrl) {
 	service.getEvent = function(id){
 		return $http({
 			method: 'GET',
-			url: apiUrl + '/evenements/' + id
+			url: '/api-proxy' + '/evenements/' + id
 		}).then(function(res) {
 			return res.data;
 		});

@@ -1,0 +1,10 @@
+{
+  "name": "novemstat",
+  "app_id": "",
+  "proxies": [
+    {
+      "path": "/api-proxy",
+      "proxyUrl": "https://cryptic-hamlet-61352.herokuapp.com"
+    }
+  ]
+}
