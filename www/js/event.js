@@ -20,7 +20,6 @@ angular.module('novemstat').factory('eventsService', function($http) {
 	}
 
 	service.postEvent = function(event){
-
 		return $http({
 			method: 'POST',
 			url: '/api-proxy' + '/evenements',
@@ -37,6 +36,7 @@ angular.module('novemstat').controller('newEventCtrl', function(eventsService, $
 	var ctrl = this;
 	ctrl.event = {};
 	$scope.currentDate = new Date();
+	//$scope.currentDate.setMinutesn($scope.currentDate.getMinutes() + 5);
 	ctrl.addEvent = function(){
 		eventsService.postEvent(ctrl.event).then(function(){
 			$state.go('tab.eventList');

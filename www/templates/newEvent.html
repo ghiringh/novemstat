@@ -4,18 +4,42 @@
 		<div class="list">
 			<label class="item item-input item-stacked-label">
 				<span class="input-label">Nom de l'événement</span>
-				<input type="text" placeholder="Journée portes ouvertes" ng-model="newIssueCtrl.event.nom" required>
+				<input type="text" placeholder="Journée portes ouvertes" ng-model="newEventCtrl.event.nom" required>
 			</label>
 			<label class="item item-input item-floating-label">
 				<span class="label">Début</span>
-				<input type="datetime-local" ng-model="newIssueCtrl.event.date_debut" required min="{{currentDate | date:'yyyy-MM-ddTHH:mm'}}">
+				<input type="datetime-local" ng-model="newEventCtrl.event.date_debut" required min="{{currentDate | date:'yyyy-MM-ddTHH:mm'}}">
 			</label>
 			<label class="item item-input item-floating-label">
 				<span class="label">Fin</span>
-				<input type="datetime-local" ng-model="newIssueCtrl.event.date_fin" required min="{{newIssueCtrl.event.date_debut | date:'yyyy-MM-ddTHH:mm'}}">
+				<input type="datetime-local" ng-model="newEventCtrl.event.date_fin" required min="{{newEventCtrl.event.date_debut | date:'yyyy-MM-ddTHH:mm'}}">
+			</label>
+		</div>	
+	</form>
+	<p> </p>
+	<form name="addEvent">
+		<div class="list">
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Détails</span>
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Objectifs</span>
+				<textarea type="text" placeholder="Faire connaître l'ingénierie des médias" ng-model="newEventCtrl.event.details.objectifs"></textarea>
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Description</span>
+				<textarea type="text" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit." ng-model="newEventCtrl.event.details.description"></textarea>
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Public</span>
+				<textarea type="text" placeholder="Etudiants en communication et en technique, 15 à 20 ans" ng-model="newEventCtrl.event.details.public"></textarea>
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Remarques</span>
+				<textarea type="text" placeholder="Praesent mollis ante ac facilisis cursus." ng-model="newEventCtrl.event.details.remarques"></textarea>
 			</label>
 		</div>
-		<button class="button button-full button-positive" ng-click="newEventCtrl.addEvent()" ng-disabled="addEvent.$invalid">Enregistrer</button>
 	</form>
+	<button class="button button-full button-positive" ng-click="newEventCtrl.addEvent()" ng-disabled="addEvent.$invalid">Enregistrer</button>
 	</ion-content>
 </ion-view>
