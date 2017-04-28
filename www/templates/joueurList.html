@@ -1,0 +1,23 @@
+<ion-view view-title="Joueurs">
+	<ion-content>
+		<div class="list list-inset">
+			<label class="item item-input">
+				<i class="icon ion-search placeholder-icon"></i>
+				<input type="text" placeholder="Recherche" ng-change="joueurListCtrl.update()" ng-model="joueurListCtrl.search" ng-model-options="{debounce:500}">
+			</label>
+		</div>
+		<p>
+			<ul>
+				<li ng-repeat='joueur in joueurListCtrl.joueurs'>
+					<div class="list list-inset">
+						<a class="item" ui-sref="tab.joueurDetails({joueurId : joueurListElementCtrl.joueur._id})">
+							<h2>{{joueur.prenom}} {{joueur.nom}}</h2>
+							<p>{{joueur.email}}</p>
+							<p>{{joueur.date_creation | date:"d MMMM yyyy"}}</p>
+						</a>
+					</div>
+				</li>
+			</ul>
+		</p>	
+	</ion-content>
+</ion-view>

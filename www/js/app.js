@@ -56,6 +56,39 @@ angular.module('novemstat').config(function($stateProvider, $urlRouterProvider) 
     }
   })
 
+  .state('tab.eventDetails', {
+    url: '/eventDetails/:eventId',
+    views: {
+      'tab-eventList': {
+        controller: 'eventDetailsCtrl',
+        controllerAs: 'eventDetailsCtrl',
+        templateUrl: 'templates/eventDetails.html'
+      }
+    }
+  })
+
+  .state('tab.joueurList', {
+    url: '/joueurList',
+    views: {
+      'tab-joueurList': {
+        controller: 'joueurListCtrl',
+        controllerAs: 'joueurListCtrl',
+        templateUrl: 'templates/joueurList.html'
+      }
+    }
+  })
+
+  .state('tab.joueurDetails', {
+    url: '/joueurDetails/:joueurId',
+    views: {
+      'tab-joueurList': {
+        controller: 'joueurDetailsCtrl',
+        controllerAs: 'joueurDetailsCtrl',
+        templateUrl: 'templates/joueurDetails.html'
+      }
+    }
+  })
+
   // This is the abstract state for the tabs directive.
   .state('tab', {
     url: '/tab',

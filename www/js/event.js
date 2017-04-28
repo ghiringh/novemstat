@@ -50,7 +50,6 @@ angular.module('novemstat').controller('eventListCtrl', function(eventsService) 
 	var ctrl = this;
 	eventsService.getEvents().then(function(data) {
 		ctrl.events = data;
-		console.log(ctrl.events);
 	});
 });
 
@@ -60,13 +59,4 @@ angular.module('novemstat').controller('eventListElementCtrl', function() {
 
 angular.module('novemstat').controller('eventDetailsCtrl', function(eventsService, $stateParams) {
 	var ctrl = this;
-});
-
-angular.module('novemstat').component('eventListElement', {
-	templateUrl: 'templates/eventListElement.html',
-	bindings: {
-		event: '<'
-	},
-	controller: 'eventListElement',
-	controllerAs: 'eventListElement'
 });
