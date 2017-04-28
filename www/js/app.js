@@ -33,28 +33,39 @@ angular.module('novemstat').config(function($stateProvider, $urlRouterProvider) 
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-
-    .state('tab.eventList', {
-      url: '/eventList',
-      views: {
-        'tab-eventList': {
-          controller: 'eventListCtrl',
-          controllerAs: 'eventListCtrl',
-          templateUrl: 'templates/eventList.html'
-        }
+  
+  .state('tab.newEvent', {
+    url: '/newEvent',
+    views: {
+      'tab-newEvent': {
+        controller: 'newEventCtrl',
+        controllerAs: 'newEventCtrl',
+        templateUrl: 'templates/newEvent.html'
       }
-    })
+    }
+  })
 
-    // This is the abstract state for the tabs directive.
-    .state('tab', {
-      url: '/tab',
-      abstract: true,
-      templateUrl: 'templates/tabs.html'
-    });
+  .state('tab.eventList', {
+    url: '/eventList',
+    views: {
+      'tab-eventList': {
+        controller: 'eventListCtrl',
+        controllerAs: 'eventListCtrl',
+        templateUrl: 'templates/eventList.html'
+      }
+    }
+  })
+
+  // This is the abstract state for the tabs directive.
+  .state('tab', {
+    url: '/tab',
+    abstract: true,
+    templateUrl: 'templates/tabs.html'
+  });
 
   // Define the default state (i.e. the first screen displayed when the app opens).
   $urlRouterProvider.otherwise(function($injector) {
-    $injector.get('$state').go('tab.eventList'); // Go to the new issue tab by default.
+    $injector.get('$state').go('tab.eventList'); // Go to the new event tab by default.
   });
 });
 

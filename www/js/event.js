@@ -19,7 +19,31 @@ angular.module('novemstat').factory('eventsService', function($http) {
 		});
 	}
 
+	service.postEvent = function(event){
+
+		return $http({
+			method: 'POST',
+			url: '/api-proxy' + '/evenements',
+			data: event
+		}).then(function(res) {
+			return res.data;
+		});
+	}
+
 	return service;
+});
+
+angular.module('novemstat').controller('newEventCtrl', function(eventsService, $state, $scope) {
+	var ctrl = this;
+	ctrl.event = {};
+	$scope.currentDate = new Date();
+	ctrl.addEvent = function(){
+		eventsService.postEvent(ctrl.event).then(function(){
+			$state.go('tab.eventList');
+		}).catch(function(err){
+			throw new Error("Une erreur est survenue lors de l'enregistrement de l'événement");
+		});
+	};
 });
 
 angular.module('novemstat').controller('eventListCtrl', function(eventsService) {
