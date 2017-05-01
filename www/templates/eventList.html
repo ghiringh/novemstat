@@ -10,8 +10,8 @@
 			<ul>
 				<li ng-repeat='event in eventListCtrl.events'>
 					<div class="list list-inset">
-						<a class="item" ui-sref="tab.eventDetails({eventId : eventListElementCtrl.event._id})">
-							<h2>{{event.nom}}</h2>
+						<a class="item" ui-sref="tab.eventDetails({eventId : event._id})">
+							<h2>{{event.nom}} • {{event.joueurs.length}} participants</h2>
 							<p>{{event.details.public}}</p>
 							<p>{{event.date_debut | date:"d MMMM yyyy, HH:mm"}} • {{event.date_fin | date:"HH:mm"}}</p>
 						</a>

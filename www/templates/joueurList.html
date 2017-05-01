@@ -12,10 +12,10 @@
 					<div class="list list-inset" ng-show="joueur.email">
 						<a class="item row" ui-sref="tab.joueurDetails({joueurId : joueurListElementCtrl.joueur._id})">
 							<canvas id="{{joueur._id}}" class="chart-preview"></canvas>
-							<div class="">
+							<div>
 								<h2>{{joueur.prenom}} {{joueur.nom}}</h2>
 								<p>{{joueur.email}}</p>
-								<p>{{joueur.evenement.nom}} &bull; {{joueur.evenement.date_debut | date:"d MMMM yyyy"}}</p>
+								<p>{{joueur.evenement.nom}} • {{joueur.evenement.date_debut | date:"d MMMM yyyy"}}</p>
 							</div>
 						</a>
 					</div>

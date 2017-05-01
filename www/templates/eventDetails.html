@@ -1,0 +1,35 @@
+<ion-view view-title="Détails de l'événement">
+		
+	<ion-content>
+		<div class="card">
+			<div class="item item-divider">
+				{{eventDetailsCtrl.event.nom}}
+			</div>
+			<div class="item" ng-show="eventDetailsCtrl.event.details.objectifs">
+				<label>Objectifs</label>
+				<p>{{eventDetailsCtrl.event.details.objectifs}}</p>
+			</div>
+			<div class="item" ng-show="eventDetailsCtrl.event.details.public">
+				<label>Public</label>
+				<p>{{eventDetailsCtrl.event.details.public}}</p>
+			</div>
+			<div class="item" ng-show="eventDetailsCtrl.event.details.description">
+				<label>Description</label>
+				<p>{{eventDetailsCtrl.event.details.description}}</p>
+			</div>
+			<div class="item item" ng-show="eventDetailsCtrl.event.details.remarques">
+				<label>Remarques</label>
+				<p>{{eventDetailsCtrl.event.details.remarques}}</p>
+			</div>
+			<div class="item item-body">
+				<label>Remarques</label>
+				<p>{{eventDetailsCtrl.event.details.remarques}}</p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="item">Type : {{issueDetailsCtrl.issue.issueType.name}}</div>
+				<div class="item item-text-wrap">Tags : {{issueDetailsCtrl.issue.tags}}</div>
+		</div>
+		<button class="button button-full button-assertive" ng-click="issueDetailsCtrl.postComment()">Supprimer l'événement</button> 
+	</ion-content>
+</ion-view>

@@ -107,7 +107,6 @@ angular.module('novemstat').controller('joueurListCtrl', function(joueursService
 				});
 			});	
 		});
-		console.log(Chart.defaults.global);
 	});
 });
 
