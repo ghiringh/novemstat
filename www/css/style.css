@@ -1,1 +1,14 @@
-/* Empty. Add your own CSS if you like */
+/* Empty. Add your own CSS if you like*/ 
+.chart-preview{
+	//border: solid 1px;
+	height: 65px !important;
+	width: 130px !important;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: -25px;
+	margin-right: -20px;
+}
+
+.list-inset{
+	margin: 5px 5px;
+}

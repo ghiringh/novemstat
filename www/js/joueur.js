@@ -54,24 +54,43 @@ angular.module('novemstat').controller('joueurListCtrl', function(joueursService
 							joueur.chart = {
 								type: 'radar',
 								data: {
-									labels: ["Business", "Communication", "Coding", "Management", "Marketing", "Multimedia"],
+									labels: ["Business", "Coding", "Communication", "Management", "Marketing", "Multimedia"],
 									datasets: [
 										{
-											label: "Tes compétences",
+											label: "Score",
 											backgroundColor: "rgba(61,103,193,0.3)",
 											borderColor: "rgba(61,103,193,1)",
 											pointBackgroundColor: "rgba(61,103,193,1)",
 											pointBorderColor: "#fff",
 											pointHoverBackgroundColor: "#fff",
 											pointHoverBorderColor: "rgba(61,103,193,1)",
-											data: [Math.random()*90+10, Math.random()*90+10, Math.random()*90+10, Math.random()*90+10, Math.random()*90+10, Math.random()*90+10]
+											data: [joueur.score.business,joueur.score.coding,joueur.score.communication,joueur.score.management,joueur.score.marketing,joueur.score.multimedia]
 										}
 									]
 								},
 								options: {
+									responsive: false,
+									legend: {
+										display: false
+									},tooltips: {
+										enabled: false,
+										callbacks: {
+											label: function(tooltipItem) {
+												return tooltipItem.yLabel;
+											}
+										}
+									},
+									hover: {
+										mode: null
+									},
 									scale: {
+										display : true,
 										ticks: {
-											beginAtZero: true
+											beginAtZero: true,
+											display:false
+										},
+										pointLabels:{
+											fontSize: 0
 										}
 									}
 								}
@@ -88,7 +107,7 @@ angular.module('novemstat').controller('joueurListCtrl', function(joueursService
 				});
 			});	
 		});
-		console.log(data);
+		console.log(Chart.defaults.global);
 	});
 });
 
