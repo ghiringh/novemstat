@@ -86,9 +86,45 @@ angular.module('novemstat').controller('eventDetailsCtrl', function(eventsServic
 						}
 					});
 				});
+				event.chart = {
+					type: 'radar',
+					data: {
+						labels: ["Business", "Coding", "Communication", "Management", "Marketing", "Multimedia"],
+						datasets: [
+							{
+								label: "Tes compétences",
+								backgroundColor: "rgba(61,103,193,0.3)",
+								borderColor: "rgba(61,103,193,1)",
+								pointBackgroundColor: "rgba(61,103,193,1)",
+								pointBorderColor: "#fff",
+								pointHoverBackgroundColor: "#fff",
+								pointHoverBorderColor: "rgba(61,103,193,1)",
+								data: [ctrl.event.score.business,ctrl.event.score.coding,ctrl.event.score.communication,ctrl.event.score.management,ctrl.event.score.marketing,ctrl.event.score.multimedia]
+							}
+						]
+					},
+					options: {
+						responsive: true,
+						legend: {
+							display: false
+						},tooltips: {
+							callbacks: {
+								label: function(tooltipItem) {
+									return tooltipItem.yLabel;
+								}
+							}
+						},
+						scale: {
+							ticks: {
+								beginAtZero: true
+							}
+						}
+					}
+				};
+				var position = document.getElementById('chart');
+				var radarChart = new Chart(position, event.chart);
 			});
 		});
-		console.log(ctrl.event);
 	});
 });
 
