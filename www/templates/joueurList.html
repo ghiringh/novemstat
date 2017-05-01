@@ -10,10 +10,15 @@
 			<ul>
 				<li ng-repeat='joueur in joueurListCtrl.joueurs'>
 					<div class="list list-inset">
-						<a class="item" ui-sref="tab.joueurDetails({joueurId : joueurListElementCtrl.joueur._id})">
-							<h2>{{joueur.prenom}} {{joueur.nom}}</h2>
-							<p>{{joueur.email}}</p>
-							<p>{{joueur.date_creation | date:"d MMMM yyyy"}}</p>
+						<a class="item row" ui-sref="tab.joueurDetails({joueurId : joueurListElementCtrl.joueur._id})">
+							<div class="col">
+								<h2>{{joueur.prenom}} {{joueur.nom}}</h2>
+								<p>{{joueur.email}}</p>
+								<p>{{joueur.evenement.nom}} &bull; {{joueur.evenement.date_debut | date:"d MMMM yyyy"}}</p>
+							</div>
+							<div class="col">
+								<canvas id="{{joueur._id}}"></canvas>
+							</div>
 						</a>
 					</div>
 				</li>
