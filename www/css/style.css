@@ -1,5 +1,5 @@
 /* Empty. Add your own CSS if you like*/ 
-.chart-preview{
+.chart-joueurs{
 	//border: solid 1px;
 	height: 65px !important;
 	width: 130px !important;
@@ -9,9 +9,15 @@
 	margin-right: -20px;
 }
 
-.chart-event{
+.chart-event, .chart-joueur{
 	margin-top: 5px;
 	margin-bottom: 5px;
+	max-height: 260px;
+	max-width: 520px;
+}
+
+.date{
+	font-weight: 400;
 }
 
 .list-inset{

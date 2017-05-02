@@ -1,0 +1,27 @@
+<ion-view view-title="Profil">
+		
+	<ion-content>
+		<div class="card">
+			<div class="item item-divider">
+				{{joueurDetailsCtrl.joueur.prenom}} {{joueurDetailsCtrl.joueur.nom}}
+			</div>
+			<div class="item" ng-show="joueurDetailsCtrl.joueur.email">
+				<label>Email</label>
+				<p>{{joueurDetailsCtrl.joueur.email}}</p>
+			</div>
+			<div class="item" ng-show="joueurDetailsCtrl.joueur.evenement">
+				<label>Événement</label>
+				<p ng-show="joueurDetailsCtrl.joueur.evenement">{{joueurDetailsCtrl.joueur.evenement.nom}} • {{joueurDetailsCtrl.joueur.evenement.date_debut | date:"d MMMM yyyy"}}</p>
+			</div>
+			<div class="item" ng-show="joueurDetailsCtrl.joueur.details.description">
+				<label>Description</label>
+				<p>{{joueurDetailsCtrl.joueur.details.description}}</p>
+			</div>
+			<div class="item item-body">
+				<label>Compétences</label>
+				<canvas id="chart-joueur" class="chart-joueur"></canvas>
+			</div>
+		</div>
+		<button class="button button-full button-assertive" ng-click="">Supprimer le joueur</button> 
+	</ion-content>
+</ion-view>

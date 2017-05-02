@@ -3,7 +3,7 @@
 	<ion-content>
 		<div class="card">
 			<div class="item item-divider">
-				{{eventDetailsCtrl.event.nom}}
+				{{eventDetailsCtrl.event.nom}} <span class="date">| {{eventDetailsCtrl.event.date_debut| date:"HH:mm"}} - {{eventDetailsCtrl.event.date_fin| date:"HH:mm d MMMM yyyy"}} </span>
 			</div>
 			<div class="item" ng-show="eventDetailsCtrl.event.details.objectifs">
 				<label>Objectifs</label>
@@ -22,12 +22,20 @@
 				<p>{{eventDetailsCtrl.event.details.remarques}}</p>
 			</div>
 			<div class="item item-body">
+				<label>Profil moyen</label>
 				<canvas id="chart" class="chart-event"></canvas>
 			</div>
-		</div>
-		<div class="card">
-			<div class="item">Type : {{issueDetailsCtrl.issue.issueType.name}}</div>
-				<div class="item item-text-wrap">Tags : {{issueDetailsCtrl.issue.tags}}</div>
+			<div class="item item-divider">
+				{{eventDetailsCtrl.event.joueurs.length}} participants
+			</div>
+			<a ng-repeat='joueur in eventDetailsCtrl.event.joueurs' class="item row" ui-sref="tab.joueurDetails({joueurId : joueurListElementCtrl.joueur._id})">
+				<!--<canvas id="{{joueur._id}}" class=""></canvas>-->
+				<div class="col">
+					<h2 ng-show="!joueur.prenom">{{joueur.pseudo}}</h2>
+					<h2 ng-show="joueur.prenom">{{joueur.prenom}} {{joueur.nom}}</h2>
+					<p ng-show="joueur.email">{{joueur.email}}</p>
+				</div>
+			</a>
 		</div>
 		<button class="button button-full button-assertive" ng-click="">Supprimer l'événement</button> 
 	</ion-content>
