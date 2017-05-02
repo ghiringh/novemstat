@@ -24,3 +24,15 @@
 .list-inset{
 	margin: 5px 5px;
 }
+.pane {
+    background-color: #102751;
+}
+.item{
+	background-color: #ffffff;
+}
+/*.input-label{
+	color: #5ca5ff;
+}*/
+.title{
+	color: #5ca5ff;
+}
