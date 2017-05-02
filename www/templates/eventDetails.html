@@ -1,5 +1,4 @@
 <ion-view view-title="Détails de l'événement">
-		
 	<ion-content>
 		<div class="card">
 			<div class="item item-divider">
@@ -21,14 +20,20 @@
 				<label>Remarques</label>
 				<p>{{eventDetailsCtrl.event.details.remarques}}</p>
 			</div>
-			<div class="item item-body">
-				<label>Profil moyen</label>
+		</div>
+		<div class="card">
+			<div class="item item-divider">
+				Profil moyen
+			</div>
+			<div class="item item-body row">
 				<canvas id="chart" class="chart-event"></canvas>
 			</div>
+		</div>
+		<div class="card">
 			<div class="item item-divider">
 				{{eventDetailsCtrl.event.joueurs.length}} participants
 			</div>
-			<a ng-repeat='joueur in eventDetailsCtrl.event.joueurs' class="item row" ui-sref="tab.joueurDetails({joueurId : joueurListElementCtrl.joueur._id})">
+			<a ng-repeat='joueur in eventDetailsCtrl.event.joueurs' class="item row" ui-sref="tab.joueurDetails({joueurId : joueur._id})">
 				<!--<canvas id="{{joueur._id}}" class=""></canvas>-->
 				<div class="col">
 					<h2 ng-show="!joueur.prenom">{{joueur.pseudo}}</h2>
