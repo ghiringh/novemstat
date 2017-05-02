@@ -114,6 +114,7 @@ angular.module('novemstat').controller('joueurDetailsCtrl', function(joueursServ
 	var ctrl = this;
 	joueursService.getJoueur($stateParams.joueurId).then(function(joueur) {
 		ctrl.joueur = joueur;
+		console.log(joueur);
 		joueursService.getScores().then(function(scores){
 			eventsService.getEvents().then(function(evenements){
 				angular.forEach(scores, function(score){
