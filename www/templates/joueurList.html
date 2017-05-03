@@ -13,8 +13,9 @@
 						<a class="item row" ui-sref="tab.joueurDetails({joueurId : joueur._id})">
 							<canvas id="{{joueur._id}}" class="chart-joueurs"></canvas>
 							<div>
-								<h2>{{joueur.prenom}} {{joueur.nom}}</h2>
-								<p>{{joueur.email}}</p>
+								<h2 ng-show="joueur.prenom">{{joueur.prenom}} {{joueur.nom}}</h2>
+								<h2 ng-show="!joueur.prenom">{{joueur.pseudo}}</h2>
+								<p ng-show="joueur.email">{{joueur.email}}</p>
 								<p ng-show="joueur.evenement">{{joueur.evenement.nom}} • {{joueur.evenement.date_debut | date:"d MMMM yyyy"}}</p>
 							</div>
 						</a>
