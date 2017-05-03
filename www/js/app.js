@@ -89,6 +89,17 @@ angular.module('novemstat').config(function($stateProvider, $urlRouterProvider) 
     }
   })
 
+  .state('tab.live', {
+    url: '/live',
+    views: {
+      'tab-live': {
+        controller: 'liveCtrl',
+        controllerAs: 'liveCtrl',
+        templateUrl: 'templates/live.html'
+      }
+    }
+  })
+
   // This is the abstract state for the tabs directive.
   .state('tab', {
     url: '/tab',
@@ -98,7 +109,7 @@ angular.module('novemstat').config(function($stateProvider, $urlRouterProvider) 
 
   // Define the default state (i.e. the first screen displayed when the app opens).
   $urlRouterProvider.otherwise(function($injector) {
-    $injector.get('$state').go('tab.eventList'); // Go to the new event tab by default.
+    $injector.get('$state').go('tab.eventList');
   });
 });
 

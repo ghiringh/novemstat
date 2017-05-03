@@ -1,0 +1,47 @@
+<ion-view view-title="Détails de l'événement">
+	<ion-content>
+		<div class="card">
+			<div class="item item-divider">
+				{{liveCtrl.event.nom}} <span class="date">| {{liveCtrl.event.date_debut| date:"HH:mm"}} - {{liveCtrl.event.date_fin| date:"HH:mm d MMMM yyyy"}} </span>
+			</div>
+			<div class="item" ng-show="liveCtrl.event.details.objectifs">
+				<label>Objectifs</label>
+				<p>{{liveCtrl.event.details.objectifs}}</p>
+			</div>
+			<div class="item" ng-show="liveCtrl.event.details.public">
+				<label>Public</label>
+				<p>{{liveCtrl.event.details.public}}</p>
+			</div>
+			<div class="item" ng-show="liveCtrl.event.details.description">
+				<label>Description</label>
+				<p>{{liveCtrl.event.details.description}}</p>
+			</div>
+			<div class="item item" ng-show="liveCtrl.event.details.remarques">
+				<label>Remarques</label>
+				<p>{{liveCtrl.event.details.remarques}}</p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="item item-divider">
+				Profil moyen
+			</div>
+			<div class="item item-body row">
+				<canvas id="chart" class="chart-event"></canvas>
+			</div>
+		</div>
+		<div class="card">
+			<div class="item item-divider">
+				{{liveCtrl.event.joueurs.length}} participants
+			</div>
+			<a ng-repeat='joueur in liveCtrl.event.joueurs' class="item row" ui-sref="tab.joueurDetails({joueurId : joueur._id})">
+				<!--<canvas id="{{joueur._id}}" class=""></canvas>-->
+				<div class="col">
+					<h2 ng-show="!joueur.prenom">{{joueur.pseudo}}</h2>
+					<h2 ng-show="joueur.prenom">{{joueur.prenom}} {{joueur.nom}}</h2>
+					<p ng-show="joueur.email">{{joueur.email}}</p>
+				</div>
+			</a>
+		</div>
+		<button class="button button-full button-assertive" ng-click="">Supprimer l'événement</button> 
+	</ion-content>
+</ion-view>
