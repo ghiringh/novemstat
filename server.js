@@ -4,7 +4,7 @@ var proxy = require('express-http-proxy');
 
 app.use(express.static('www'));
 
-app.use('/api-proxy', proxy(process.env.PROXY_URL || 'localhost:3000'));
+app.use('/api-proxy', proxy(process.env.PROXY_URL || 'https://novemlab2018-backend.herokuapp.com/'));
 
 // CORS (Cross-Origin Resource Sharing) headers to support Cross-site HTTP requests
 app.all('*', function(req, res, next) {
