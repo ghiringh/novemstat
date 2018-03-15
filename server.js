@@ -4,7 +4,7 @@ var proxy = require('express-http-proxy');
 
 app.use(express.static('www'));
 
-app.use('/api-proxy', proxy('https://novemapi.herokuapp.com'));
+app.use('/api-proxy', proxy(process.env.PROXY_URL || 'localhost:3000'));
 
 // CORS (Cross-Origin Resource Sharing) headers to support Cross-site HTTP requests
 app.all('*', function(req, res, next) {
@@ -16,7 +16,7 @@ app.all('*', function(req, res, next) {
 // API Routes
 // app.get('/blah', routeHandler);
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 8800);
 
 app.listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));

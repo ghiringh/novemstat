@@ -3,6 +3,9 @@
   "description": "Ionic Node.js Heroku app",
   "version": "0.0.1",
   "private": true,
+  "scripts":{
+    "dev":"nodemon server.js"
+  },
   "dependencies": {
     "cordova": "^6.5.0",
     "express": "~4.4.3",
